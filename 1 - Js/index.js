@@ -32,3 +32,46 @@ let user = {
 };
 
 greet(user);
+
+let arr = [
+  {
+    name: "Nur",
+    age: 27,
+    cities: ["Dhaka", "Chittagong"],
+  },
+];
+
+console.log(arr[0].cities[0]);
+
+// create a function that takes an array of objects as input, and return the users whose age > 18 and are male
+
+function solve(arr) {
+  let filteredUsers = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].gender === "male" && arr[i].age > 18) {
+      filteredUsers.push(arr[i]);
+    }
+  }
+  return filteredUsers;
+}
+
+let arrOfUsers = [
+  {
+    name: "Nur",
+    age: 26,
+    gender: "male",
+  },
+  {
+    name: "Oishi",
+    age: 20,
+    gender: "female",
+  },
+  {
+    name: "Adnan",
+    age: 25,
+    gender: "male",
+  },
+];
+
+const filteredUsers = solve(arrOfUsers);
+console.log(filteredUsers);
