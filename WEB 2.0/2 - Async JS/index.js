@@ -33,3 +33,27 @@ function doOperation(a, b, op) {
 }
 
 console.log(doOperation(15, 5, divide));
+
+function timeOut() {
+  console.log("Click the button");
+}
+
+console.log("Hi !");
+
+setTimeout(timeOut, 1500);
+console.log("Welcome to loop");
+
+// to make a setTimeout sync
+
+function setTimeoutSync(timeout) {
+  let startTime = new Date();
+  while (1) {
+    let currentTime = new Date();
+    if (currentTime.getTime() - startTime.getTime() > 1) {
+      break;
+    }
+  }
+}
+
+setTimeoutSync(1000);
+console.log("Hi Adnan Chowdhury !");
