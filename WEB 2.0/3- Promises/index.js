@@ -38,3 +38,34 @@ const map = new Map();
 map.set("name", "Chowdhury");
 map.set("age", 26);
 console.log(map.get("name"));
+
+// a promise class gives you a promise, that i will return you something in the future
+const fs = require("fs");
+
+console.log("--- Top of the file ---");
+
+// resolve arg..
+function readFile(value) {
+  console.log("Read Fill Called");
+  fs.readFile("a.txt", "utf-8", function (err, data) {
+    console.log("Callback based ReadFile Completed");
+    value(data);
+  });
+}
+
+// promise instance
+function readPromiseFile() {
+  console.log("readPromiseFile called");
+  return new Promise(readFile);
+  // first readfile call, after that readFile value means the argument called which somehow call the callback function.
+}
+
+const p = readPromiseFile();
+
+function callback(contents) {
+  console.log("Reading the file completed");
+  console.log(contents);
+}
+
+p.then(callback);
+console.log("-- End of the File --");
