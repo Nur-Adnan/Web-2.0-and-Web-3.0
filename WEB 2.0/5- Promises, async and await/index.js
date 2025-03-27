@@ -68,3 +68,46 @@ setTimeoutPromise(1000)
   });
 
 console.log("Outside the callback hell");
+
+// async await
+function setTimeoutAsync(duration) {
+  return new Promise(function (resolve) {
+    setTimeout(resolve, duration);
+  });
+}
+
+async function solve() {
+  await setTimeoutAsync(1000);
+  console.log("Hi !");
+  await setTimeoutAsync(3000);
+  console.log("Hello.");
+  await setTimeoutAsync(5000);
+  console.log("Hi There !");
+}
+
+solve();
+console.log("After the solve function");
+
+// promise resolve, reject
+
+const fs = require("fs");
+
+function readAsync() {
+  return new Promise(function (resolve, reject) {
+    fs.readFile("a.txt", "utf-8", function (err, data) {
+      if (err) {
+        reject("File not found");
+      } else {
+        resolve(data);
+      }
+    });
+  });
+}
+
+readAsync()
+  .then(function () {
+    console.log("File has been read");
+  })
+  .catch(function (e) {
+    console.log(e);
+  });
