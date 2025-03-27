@@ -105,8 +105,8 @@ function readAsync() {
 }
 
 readAsync()
-  .then(function () {
-    console.log("File has been read");
+  .then(function (x) {
+    console.log("File has been read. " + x);
   })
   .catch(function (e) {
     console.log(e);
