@@ -45,3 +45,26 @@ function step1Done() {
 
 // The whole process starts here with a delay of 1 second.
 setTimeout(step1Done, 1000); // Calls step1Done() after 1 second.
+
+// by using promise
+function setTimeoutPromise(duration) {
+  return new Promise(function (resolve) {
+    setTimeout(resolve, duration);
+  });
+}
+
+// promise chaining
+setTimeoutPromise(1000)
+  .then(function () {
+    console.log("Hi !");
+    return setTimeoutPromise(3000);
+  })
+  .then(function () {
+    console.log("Hello.");
+    return setTimeoutPromise(5000);
+  })
+  .then(function () {
+    console.log("Hi There !");
+  });
+
+console.log("Outside the callback hell");
